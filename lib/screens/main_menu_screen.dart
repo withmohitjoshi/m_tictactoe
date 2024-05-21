@@ -22,6 +22,7 @@ class MainMenuScreen extends StatelessWidget {
       body: Responsive(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomButton(onTap: () => createRoom(context), text: "Create Room"),
             const SizedBox(height: 20),
