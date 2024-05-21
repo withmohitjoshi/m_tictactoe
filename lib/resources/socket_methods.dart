@@ -28,7 +28,6 @@ class SocketMethods {
   // listeners
   void createRoomSuccessListner(BuildContext context) {
     _socketClient?.on(createRoomSuccessE, (room) {
-      print(room['_id']);
       Provider.of<RoomDataProvider>(context, listen: false)
           .updateRoomData(room);
       showSnakbar(context, "Room ID is: ${room['_id']}");
@@ -38,7 +37,6 @@ class SocketMethods {
 
   void joinRoomSuccessListner(BuildContext context) {
     _socketClient?.on(joinRoomSuccessE, (room) {
-      print("aaya hai joinRoomSuccessListner mein");
       Provider.of<RoomDataProvider>(context, listen: false)
           .updateRoomData(room);
       Navigator.pushNamed(context, GameScreen.routeName);
@@ -48,6 +46,15 @@ class SocketMethods {
   void errorOccurredListner(BuildContext context) {
     _socketClient?.on(errorOccurredE, (data) {
       showSnakbar(context, data['message']);
+    });
+  }
+
+  void updatePlayerStateListener(BuildContext context) {
+    _socketClient?.on(updatePlayersE, (playersData) {
+      Provider.of<RoomDataProvider>(context, listen: false)
+          .updatePlayer1(playersData[0]);
+      Provider.of<RoomDataProvider>(context, listen: false)
+          .updatePlayer2(playersData[1]);
     });
   }
 }

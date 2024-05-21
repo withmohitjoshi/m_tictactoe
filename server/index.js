@@ -33,6 +33,7 @@ io.on(EVENT_NAMES.connectionE, (socket) => {
         playerType: "X",
       };
       room.players.push(player);
+      room.isJoin = false;
       room.turn = player;
       room = await room.save();
       const roomId = room._id.toString();
@@ -63,6 +64,7 @@ io.on(EVENT_NAMES.connectionE, (socket) => {
         room.players.push(player);
         room = await room.save();
         io.to(roomId).emit(EVENT_NAMES.joinRoomSuccessE, room);
+        io.to(roomId).emit(EVENT_NAMES.updatePlayersE, room.players);
       } else {
         socket.emit(EVENT_NAMES.errorOccurredE, {
           message: "Game is in progress, try again later.",
