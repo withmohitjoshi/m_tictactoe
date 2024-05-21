@@ -13,7 +13,7 @@ class CustomTextField extends StatelessWidget {
       decoration: const BoxDecoration(boxShadow: [
         BoxShadow(
           color: Colors.blue,
-          blurRadius: 5,
+          blurRadius: 10,
           spreadRadius: 0,
         )
       ]),
@@ -23,6 +23,7 @@ class CustomTextField extends StatelessWidget {
           fillColor: bgColor,
           filled: true,
           hintText: hintText,
+          border: InputBorder.none,
         ),
       ),
     );
