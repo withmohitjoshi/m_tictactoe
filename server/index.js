@@ -26,18 +26,18 @@ io.on(EVENT_NAMES.connectionE, (socket) => {
   // creating the room
   socket.on(EVENT_NAMES.createRoomE, async ({ nickname }) => {
     try {
-      let roomModal = new RoomModal();
+      let room = new RoomModal();
       let player = {
         socketID: socket.id,
         nickname,
         playerType: "X",
       };
-      roomModal.players.push(player);
-      roomModal.turn = player;
-      roomModal = await roomModal.save();
-      const roomId = roomModal._id;
+      room.players.push(player);
+      room.turn = player;
+      room = await room.save();
+      const roomId = room._id.toString();
       socket.join(roomId);
-      io.to(roomId).emit(EVENT_NAMES.createRoomSuccessE, roomModal);
+      io.to(roomId).emit(EVENT_NAMES.createRoomSuccessE, room);
     } catch (error) {
       console.error(error);
     }
@@ -55,10 +55,11 @@ io.on(EVENT_NAMES.connectionE, (socket) => {
 
       if (room.isJoin) {
         let player = {
-          socketID: socket.id,
           nickname,
+          socketID: socket.id,
           playerType: "O",
         };
+        socket.join(roomId);
         room.players.push(player);
         room = await room.save();
         io.to(roomId).emit(EVENT_NAMES.joinRoomSuccessE, room);
