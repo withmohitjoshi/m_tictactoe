@@ -5,3 +5,4 @@ const createRoomSuccessE = 'createRoomSuccess';
 const joinRoomSuccessE = "joinRoomSuccess";
 const errorOccurredE = "errorOccurred";
 const updatePlayersE = "updatePlayers";
+const updateRoomE = "updateRoom";

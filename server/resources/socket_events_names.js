@@ -5,6 +5,7 @@ const createRoomSuccessE = "createRoomSuccess";
 const joinRoomSuccessE = "joinRoomSuccess";
 const errorOccurredE = "errorOccurred";
 const updatePlayersE = "updatePlayers";
+const updateRoomE = "updateRoom";
 
 module.exports = {
   connectionE,
@@ -13,5 +14,6 @@ module.exports = {
   createRoomSuccessE,
   errorOccurredE,
   joinRoomSuccessE,
-  updatePlayersE
+  updatePlayersE,
+  updateRoomE
 };
