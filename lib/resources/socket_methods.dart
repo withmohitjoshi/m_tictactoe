@@ -59,7 +59,7 @@ class SocketMethods {
   }
 
   void updateRoomListener(BuildContext context) {
-    _socketClient?.on(updatePlayersE, (data) {
+    _socketClient?.on(updateRoomE, (data) {
       Provider.of<RoomDataProvider>(context, listen: false)
           .updateRoomData(data);
     });
