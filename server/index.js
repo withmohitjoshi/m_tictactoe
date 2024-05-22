@@ -4,16 +4,9 @@ const mongoose = require("mongoose");
 const socket = require("socket.io");
 const EVENT_NAMES = require("./resources/socket_events_names");
 const { RoomModal } = require("./modals/room");
+const connectDB = require("./resources/connectDB");
 
 const PORT = process.env.PORT || 3000;
-
-const DB_URL =
-  "mongodb+srv://andromj4:andro316a@mptictactoecluster.1vutbfx.mongodb.net/?retryWrites=true&w=majority&appName=MpTicTacToeCluster";
-
-mongoose
-  .connect(DB_URL)
-  .then(() => console.log("MongoDB connected successfully"))
-  .catch((error) => console.error(error));
 
 const app = express();
 const server = http.createServer(app);
@@ -80,6 +73,7 @@ io.on(EVENT_NAMES.connectionE, (socket) => {
 
 app.use(express.json());
 
-server.listen(PORT, "0.0.0.0", () =>
-  console.log(`Server is started and running at port ${PORT}`)
-);
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is started and running at port ${PORT}`);
+  connectDB();
+});

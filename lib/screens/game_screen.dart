@@ -18,8 +18,7 @@ class _GameScreenState extends State<GameScreen> {
     RoomDataProvider roomDataProvider = Provider.of<RoomDataProvider>(context);
 
     return Scaffold(
-      body: roomDataProvider.roomData.containsKey('isJoin') &&
-              roomDataProvider.roomData['isJoin'] == false
+      body: roomDataProvider.roomData['isJoin']
           ? const WaitingLobby()
           : const Center(
               child: Text("game screen"),
