@@ -4,6 +4,7 @@ import 'package:mp_tictactoe/resources/game_methods.dart';
 import 'package:mp_tictactoe/resources/socket_events_name.dart';
 import 'package:mp_tictactoe/resources/socket_client.dart';
 import 'package:mp_tictactoe/screens/game_screen.dart';
+import 'package:mp_tictactoe/screens/main_menu_screen.dart';
 import 'package:mp_tictactoe/utils/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:socket_io_client/socket_io_client.dart';
@@ -104,7 +105,7 @@ class SocketMethods {
   void endGameListener(BuildContext context) {
     _socketClient?.on('endGame', (playerData) {
       showGameDialog(context, '${playerData['nickname']} won the game!');
-      Navigator.popUntil(context, (route) => false);
+      Navigator.popAndPushNamed(context, MainMenuScreen.routeName);
     });
   }
 }

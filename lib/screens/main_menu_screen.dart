@@ -9,11 +9,11 @@ class MainMenuScreen extends StatelessWidget {
   const MainMenuScreen({super.key});
 
   void createRoom(BuildContext context) {
-    Navigator.pushNamed(context, CreateRoomScreen.routeName);
+    Navigator.pushReplacementNamed(context, CreateRoomScreen.routeName);
   }
 
   void joinRoom(BuildContext context) {
-    Navigator.pushNamed(context, JoinRoomScreen.routeName);
+    Navigator.pushReplacementNamed(context, JoinRoomScreen.routeName);
   }
 
   @override
