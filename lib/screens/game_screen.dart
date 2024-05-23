@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mp_tictactoe/provider/room_data_provider.dart';
 import 'package:mp_tictactoe/resources/socket_methods.dart';
+import 'package:mp_tictactoe/views/scoreboard.dart';
+import 'package:mp_tictactoe/views/tictactoe_board.dart';
 import 'package:mp_tictactoe/views/waiting_lobby.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +22,8 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     _socketMethods.updateRoomListener(context);
     _socketMethods.updatePlayerStateListener(context);
+    _socketMethods.pointIncreaseListener(context);
+    _socketMethods.endGameListener(context);
     super.initState();
   }
 
@@ -30,8 +34,16 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(
       body: roomDataProvider.roomData['isJoin']
           ? const WaitingLobby()
-          : const Center(
-              child: Text("game screen"),
+          : SafeArea(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Scoreboard(),
+                  const TictactoeBoard(),
+                  Text(
+                      '${roomDataProvider.roomData['turn']['nickname']}\'s turn')
+                ],
+              ),
             ),
     );
   }

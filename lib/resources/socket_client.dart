@@ -1,3 +1,4 @@
+import 'package:mp_tictactoe/utils/utils.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
 class SocketClient {
@@ -5,7 +6,7 @@ class SocketClient {
   static SocketClient? _instance;
 
   SocketClient._internal() {
-    socket = io.io('http://192.168.245.149:3000', <String, dynamic>{
+    socket = io.io('http://$IP:3000', <String, dynamic>{
       'transports': ["websocket"],
       'autoConnect': false
     });

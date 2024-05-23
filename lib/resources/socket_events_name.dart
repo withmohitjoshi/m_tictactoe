@@ -6,3 +6,5 @@ const joinRoomSuccessE = "joinRoomSuccess";
 const errorOccurredE = "errorOccurred";
 const updatePlayersE = "updatePlayers";
 const updateRoomE = "updateRoom";
+const tapE = "tap";
+const tappedE = "tapped";
