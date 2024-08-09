@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       create: (context) => RoomDataProvider(),
       child: SafeArea(
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           routes: {
             MainMenuScreen.routeName: (context) => const MainMenuScreen(),
             JoinRoomScreen.routeName: (context) => const JoinRoomScreen(),

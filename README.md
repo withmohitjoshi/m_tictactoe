@@ -1,16 +1,51 @@
-# mp_tictactoe
+# Multi Player TicTacToe Game
 
-A new Flutter project.
+A real-time multiplayer Tic-Tac-Toe game built with Flutter, MongoDB, and Socket.IO.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Real-time gameplay with multiple players
+- Player authentication and management using MongoDB
+- User-friendly interface with clear game state
+- Win/lose/draw conditions and game over handling
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Running the app
+
+Clone the repository
+
+```
+git clone https://github.com/withmohitjoshi/mp_tictactoe.git
+```
+
+Navigate to the directory
+
+```
+cd ./mp_tictactoe
+```
+
+Install required packages
+
+```
+flutter pub get
+```
+
+To run the <b>Server</b> you need to create a <b>.env</b> in server folder and place <b>MONGODB_URI</b> as your mongo db url
+
+```
+cd ./server
+npm run dev
+```
+
+Run the app
+
+```
+flutter run
+```
+
+## Snapshots
+
+<img src="./snapshots/snap_1.jpg" width="30%"/>
+<img src="./snapshots/snap_2.jpg" width="30%"/>
+<img src="./snapshots/snap_3.jpg" width="30%"/>

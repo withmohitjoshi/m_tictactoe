@@ -7,7 +7,7 @@ void showSnakbar(BuildContext context, String content) {
   ));
 }
 
-const IP = "192.168.151.149";
+const IP = "***.***.**.**";
 
 void showGameDialog(BuildContext context, String text) {
   showDialog(
